@@ -108,7 +108,8 @@ implementation 'org.tensorflow:tensorflow-lite-support:0.0.0-nightly'
 ```
 
 ## Tensorflow Lite工具
-编写一个[TFLiteClassificationUtil](https://github.com/yeyupiaoling/ClassificationForAndroid/blob/master/TFLiteClassification/app/src/main/java/com/yeyupiaoling/tfliteclassification/TFLiteClassificationUtil.java)工具类，关于Tensorflow Lite的操作都在这里完成，如加载模型、预测。在构造方法中，通过参数传递的模型路径加载模型，在加载模型的时候配置预测信息，例如是否使用Android底层神经网络API`NnApiDelegate`或者是否使用GPU`GpuDelegate`，同时获取网络的输入输出层。有了`tensorflow-lite-support`库，数据预处理就变得非常简单，通过`ImageProcessor`创建一个数据预处理的工具，之后在预测之前使用这个工具对图像进行预处理，处理速度还是挺快的，要注意的是图像的均值`IMAGE_MEAN`和标准差`IMAGE_STD`，因为在训练的时候图像预处理可能不一样的。
+编写一个[TFLiteClassificationUtil](https://github.com/yeyupiaoling/ClassificationForAndroid/blob/master/TFLiteClassification/app/src/main/java/com/yeyupiaoling/tfliteclassification/TFLiteClassificationUtil.java)工具类，关于Tensorflow Lite的操作都在这里完成，如加载模型、预测。在构造方法中，通过参数传递的模型路径加载模型，在加载模型的时候配置预测信息，例如是否使用Android底层神经网络API`NnApiDelegate`或者是否使用GPU`GpuDelegate`，同时获取网络的输入输出层。有了`tensorflow-lite-support`库，数据预处理就变得非常简单，通过`ImageProcessor`创建一个数据预处理的工具，之后在预测之前使用这个工具对图像进行预处理，处理速度还是挺快的，要注意的是图像的均值`IMAGE_MEAN`和标准差`IMAGE_STD`，因为在训练的时候图像预处理可能不一样的，有些读者出现在电脑上准确率很高，但在手机上准确率很低，多数情况下就是这个图像预处理做得不对。
+
 ```java
 private static final float[] IMAGE_MEAN = new float[]{128.0f, 128.0f, 128.0f};
 private static final float[] IMAGE_STD = new float[]{128.0f, 128.0f, 128.0f};
