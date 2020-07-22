@@ -21,8 +21,8 @@ public class TFLiteClassificationUtil {
     private TensorImage inputImageBuffer;
     private final TensorBuffer outputProbabilityBuffer;
     private static final int NUM_THREADS = 4;
-    private static final float IMAGE_MEAN = 128.0f;
-    private static final float IMAGE_STD = 128.0f;
+    private static final float[] IMAGE_MEAN = new float[]{128.0f, 128.0f, 128.0f};
+    private static final float[] IMAGE_STD = new float[]{128.0f, 128.0f, 128.0f};
     private final ImageProcessor imageProcessor;
 
 
