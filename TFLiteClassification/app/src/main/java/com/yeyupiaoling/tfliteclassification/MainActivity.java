@@ -23,13 +23,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
     private TFLiteClassificationUtil tfLiteClassificationUtil;
     private ImageView imageView;
     private TextView textView;
-    private String[] classNames;
+    private ArrayList<String> classNames;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         // 加载模型和标签
-        classNames = new String[]{"苹果", "哈密瓜", "胡萝卜", "樱桃", "黄瓜", "西瓜"};
+        classNames = Utils.ReadListFromFile(getAssets(), "label_list.txt");
         String classificationModelPath = getCacheDir().getAbsolutePath() + File.separator + "mobilenet_v2.tflite";
         Utils.copyFileFromAsset(MainActivity.this, "mobilenet_v2.tflite", classificationModelPath);
         try {
@@ -96,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
                     float[] result = tfLiteClassificationUtil.predictImage(image_path);
                     long end = System.currentTimeMillis();
                     String show_text = "预测结果标签：" + (int) result[0] +
-                            "\n名称：" +  classNames[(int) result[0]] +
+                            "\n名称：" +  classNames.get((int) result[0]) +
                             "\n概率：" + result[1] +
                             "\n时间：" + (end - start) + "ms";
                     textView.setText(show_text);

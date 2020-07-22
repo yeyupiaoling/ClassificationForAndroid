@@ -47,8 +47,8 @@ public class TFLiteClassificationUtil {
             options.addDelegate(delegate);
             tflite = new Interpreter(file, options);
             // 获取输入，shape为{1, height, width, 3}
-            int[] imageShape = tflite.getInputTensor(tflite.getInputIndex("mobilenetv2_1.00_224_input")).shape();
-            DataType imageDataType = tflite.getInputTensor(tflite.getInputIndex("mobilenetv2_1.00_224_input")).dataType();
+            int[] imageShape = tflite.getInputTensor(tflite.getInputIndex("input_1")).shape();
+            DataType imageDataType = tflite.getInputTensor(tflite.getInputIndex("input_1")).dataType();
             inputImageBuffer = new TensorImage(imageDataType);
             // 获取输入，shape为{1, NUM_CLASSES}
             int[] probabilityShape = tflite.getOutputTensor(tflite.getOutputIndex("Identity")).shape();

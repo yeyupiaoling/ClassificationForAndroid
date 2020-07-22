@@ -1,6 +1,7 @@
 package com.yeyupiaoling.tfliteclassification;
 
 import android.content.Context;
+import android.content.res.AssetManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.Matrix;
@@ -9,11 +10,13 @@ import android.provider.MediaStore;
 import android.util.Log;
 import android.util.Size;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.util.ArrayList;
@@ -140,5 +143,22 @@ public class Utils {
         Log.d("new_file_md5", new_file_md5);
         Log.d("assets_file_md5", assets_file_md5);
         return new_file_md5.equals(assets_file_md5);
+    }
+
+    public static ArrayList<String> ReadListFromFile(AssetManager assetManager, String filePath) {
+        ArrayList<String> list = new ArrayList<String>();
+        BufferedReader reader = null;
+        InputStream istr = null;
+        try {
+            reader = new BufferedReader(
+                    new InputStreamReader(assetManager.open(filePath)));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                list.add(line);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return list;
     }
 }
