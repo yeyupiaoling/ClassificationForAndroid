@@ -1,7 +1,7 @@
-> 原文博客：[Doi技术团队](http://blog.doiduoyi.com)
-> 链接地址：[https://blog.doiduoyi.com/authors/1584446358138](https://blog.doiduoyi.com/authors/1584446358138)
-> 初心：记录优秀的Doi技术团队学习经历
->本文链接：[基于Tensorflow2 Lite在Android手机上实现图像分类](https://blog.doiduoyi.com/articles/1595399632765.html)
+> 原文博客：[Doi技术团队](http://blog.doiduoyi.com)<br/>
+> 链接地址：[https://blog.doiduoyi.com/authors/1584446358138](https://blog.doiduoyi.com/authors/1584446358138)<br/>
+> 初心：记录优秀的Doi技术团队学习经历<br/>
+>本文链接：[基于Tensorflow2 Lite在Android手机上实现图像分类](https://blog.doiduoyi.com/articles/1595399632765.html)<br/>
 
 
 # 前言
