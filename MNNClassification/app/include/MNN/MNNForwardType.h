@@ -8,6 +8,8 @@
 
 #ifndef MNNForwardType_h
 #define MNNForwardType_h
+#include <stdint.h>
+#include <stddef.h>
 
 typedef enum {
     MNN_FORWARD_CPU = 0,
@@ -38,38 +40,36 @@ typedef enum {
     MNN_FORWARD_USER_2 = 10,
     MNN_FORWARD_USER_3 = 11,
 
-    MNN_FORWARD_ALL
+    MNN_FORWARD_ALL,
+    
+    /* Apply arm extension instruction set to accelerate some Ops, this forward type
+       is only used in MNN internal, and will be active automatically when user set forward type
+       to be MNN_FORWARD_CPU and extension instruction set is valid on hardware.
+    */
+    MNN_FORWARD_CPU_EXTENSION
+    
 } MNNForwardType;
 #ifdef __cplusplus
 namespace MNN {
 struct BackendConfig {
-    enum MemoryMode {
-        Memory_Normal = 0,
-        Memory_High,
-        Memory_Low
-    };
-    
+    enum MemoryMode { Memory_Normal = 0, Memory_High, Memory_Low };
+
     MemoryMode memory = Memory_Normal;
-    
-    enum PowerMode {
-        Power_Normal = 0,
-        Power_High,
-        Power_Low
-    };
-    
+
+    enum PowerMode { Power_Normal = 0, Power_High, Power_Low };
+
     PowerMode power = Power_Normal;
-    
-    enum PrecisionMode {
-        Precision_Normal = 0,
-        Precision_High,
-        Precision_Low
-    };
-    
+
+    enum PrecisionMode { Precision_Normal = 0, Precision_High, Precision_Low };
+
     PrecisionMode precision = Precision_Normal;
-    
+
     /** user defined context */
-    void* sharedContext = nullptr;
+    union {
+        void* sharedContext = nullptr;
+        size_t flags; // Valid for CPU Backend
+    };
 };
-};
+}; // namespace MNN
 #endif
 #endif /* MNNForwardType_h */

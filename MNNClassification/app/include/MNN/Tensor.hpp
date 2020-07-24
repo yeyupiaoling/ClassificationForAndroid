@@ -10,7 +10,7 @@
 #define Tensor_hpp
 
 #include <vector>
-#include "HalideRuntime.h"
+#include <MNN/HalideRuntime.h>
 #include <MNN/MNNDefine.h>
 
 namespace MNN {
@@ -42,16 +42,6 @@ public:
         HANDLE_NONE = 0,
         /** string handle type */
         HANDLE_STRING = 1
-    };
-
-    /** dimension reorder flag */
-    enum DataReorderType {
-        /** default reorder type, do not reorder */
-        NO_REORDER = 0,
-        /** reorder dimension 4 by 4. usually used with NC4HW4 or NHWC4 while data type is float. */
-        REORDER_4 = 1,
-        /** reorder dimension 8 by 8. usually used with NC4HW4 or NHWC4 while data type is uint8 or int8. */
-        REORDER_8
     };
 
 public:
@@ -231,7 +221,7 @@ public:
         if (getDimensionType() == TENSORFLOW) {
             return mBuffer.dim[2].extent;
         }
-        
+
         return mBuffer.dim[3].extent;
     }
     inline int height() const {
@@ -269,6 +259,11 @@ public:
      * @brief print tensor data. for DEBUG use only.
      */
     void print() const;
+    
+    /**
+     *@brief print tensor shape
+     */
+    void printShape() const;
 
 private:
     halide_buffer_t mBuffer;

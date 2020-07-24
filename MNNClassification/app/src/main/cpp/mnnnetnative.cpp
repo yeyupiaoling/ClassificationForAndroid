@@ -8,8 +8,8 @@
 
 extern "C" JNIEXPORT jlong JNICALL
 Java_com_yeyupiaoling_mnnclassification_mnn_MNNNetNative_nativeCreateNetFromFile(JNIEnv *env,
-                                                                  jclass type,
-                                                                  jstring modelName_) {
+                                                                                 jclass type,
+                                                                                 jstring modelName_) {
     const char *modelName = env->GetStringUTFChars(modelName_, 0);
     auto interpreter = MNN::Interpreter::createFromFile(modelName);
     env->ReleaseStringUTFChars(modelName_, modelName);
@@ -18,7 +18,8 @@ Java_com_yeyupiaoling_mnnclassification_mnn_MNNNetNative_nativeCreateNetFromFile
 }
 
 extern "C" JNIEXPORT jlong JNICALL
-Java_com_yeyupiaoling_mnnclassification_mnn_MNNNetNative_nativeReleaseNet(JNIEnv *env, jclass type, jlong netPtr) {
+Java_com_yeyupiaoling_mnnclassification_mnn_MNNNetNative_nativeReleaseNet(JNIEnv *env, jclass type,
+                                                                          jlong netPtr) {
     if (0 == netPtr) {
         return 0;
     }
@@ -75,9 +76,9 @@ Java_com_yeyupiaoling_mnnclassification_mnn_MNNNetNative_nativeCreateSession(
 
 extern "C" JNIEXPORT void JNICALL
 Java_com_yeyupiaoling_mnnclassification_mnn_MNNNetNative_nativeReleaseSession(JNIEnv *env,
-                                                               jclass type,
-                                                               jlong netPtr,
-                                                               jlong sessionPtr) {
+                                                                              jclass type,
+                                                                              jlong netPtr,
+                                                                              jlong sessionPtr) {
     auto net = (MNN::Interpreter *) netPtr;
     auto session = (MNN::Session *) sessionPtr;
     net->releaseSession(session);
@@ -85,8 +86,8 @@ Java_com_yeyupiaoling_mnnclassification_mnn_MNNNetNative_nativeReleaseSession(JN
 
 extern "C" JNIEXPORT jint JNICALL
 Java_com_yeyupiaoling_mnnclassification_mnn_MNNNetNative_nativeRunSession(JNIEnv *env, jclass type,
-                                                           jlong netPtr,
-                                                           jlong sessionPtr) {
+                                                                          jlong netPtr,
+                                                                          jlong sessionPtr) {
     auto net = (MNN::Interpreter *) netPtr;
     auto session = (MNN::Session *) sessionPtr;
     return net->runSession(session);
@@ -149,9 +150,9 @@ Java_com_yeyupiaoling_mnnclassification_mnn_MNNNetNative_nativeRunSessionWithCal
 
 extern "C" JNIEXPORT jint JNICALL
 Java_com_yeyupiaoling_mnnclassification_mnn_MNNNetNative_nativeReshapeSession(JNIEnv *env,
-                                                               jclass type,
-                                                               jlong netPtr,
-                                                               jlong sessionPtr) {
+                                                                              jclass type,
+                                                                              jlong netPtr,
+                                                                              jlong sessionPtr) {
     auto net = (MNN::Interpreter *) netPtr;
     auto session = (MNN::Session *) sessionPtr;
     net->resizeSession(session);
@@ -190,10 +191,10 @@ Java_com_yeyupiaoling_mnnclassification_mnn_MNNNetNative_nativeGetSessionOutput(
 
 extern "C" JNIEXPORT void JNICALL
 Java_com_yeyupiaoling_mnnclassification_mnn_MNNNetNative_nativeReshapeTensor(JNIEnv *env,
-                                                              jclass type,
-                                                              jlong netPtr,
-                                                              jlong tensorPtr,
-                                                              jintArray dims_) {
+                                                                             jclass type,
+                                                                             jlong netPtr,
+                                                                             jlong tensorPtr,
+                                                                             jintArray dims_) {
     jint *dims = env->GetIntArrayElements(dims_, NULL);
     auto dimSize = env->GetArrayLength(dims_);
     std::vector<int> dimVector(dimSize);
@@ -238,8 +239,8 @@ Java_com_yeyupiaoling_mnnclassification_mnn_MNNNetNative_nativeSetInputFloatData
 
 extern "C" JNIEXPORT jintArray JNICALL
 Java_com_yeyupiaoling_mnnclassification_mnn_MNNNetNative_nativeTensorGetDimensions(JNIEnv *env,
-                                                                    jclass type,
-                                                                    jlong tensorPtr) {
+                                                                                   jclass type,
+                                                                                   jlong tensorPtr) {
     auto tensor = (MNN::Tensor *) tensorPtr;
     auto dimensions = tensor->buffer().dimensions;
 
@@ -255,19 +256,19 @@ Java_com_yeyupiaoling_mnnclassification_mnn_MNNNetNative_nativeTensorGetDimensio
 
 extern "C" JNIEXPORT jint JNICALL
 Java_com_yeyupiaoling_mnnclassification_mnn_MNNNetNative_nativeTensorGetUINT8Data(JNIEnv *env,
-                                                                   jclass type,
-                                                                   jlong tensorPtr,
-                                                                   jbyteArray jdest) {
+                                                                                  jclass type,
+                                                                                  jlong tensorPtr,
+                                                                                  jbyteArray jdest) {
     auto tensor = (MNN::Tensor *) tensorPtr;
     if (nullptr == jdest) {
         return tensor->elementSize();
     }
 
     auto length = env->GetArrayLength(jdest);
+    std::unique_ptr<MNN::Tensor> hostTensor;
     if (tensor->host<int>() == nullptr) {
         // GPU buffer
-        std::unique_ptr<MNN::Tensor> hostTensor(
-                new MNN::Tensor(tensor, tensor->getDimensionType(), true));
+        hostTensor.reset(new MNN::Tensor(tensor, tensor->getDimensionType(), true));
         tensor->copyToHostTensor(hostTensor.get());
         tensor = hostTensor.get();
     }
@@ -287,19 +288,19 @@ Java_com_yeyupiaoling_mnnclassification_mnn_MNNNetNative_nativeTensorGetUINT8Dat
 
 extern "C" JNIEXPORT jint JNICALL
 Java_com_yeyupiaoling_mnnclassification_mnn_MNNNetNative_nativeTensorGetIntData(JNIEnv *env,
-                                                                 jclass type,
-                                                                 jlong tensorPtr,
-                                                                 jintArray dest) {
+                                                                                jclass type,
+                                                                                jlong tensorPtr,
+                                                                                jintArray dest) {
     auto tensor = (MNN::Tensor *) tensorPtr;
     if (nullptr == dest) {
         return tensor->elementSize();
     }
 
+    std::unique_ptr<MNN::Tensor> hostTensor;
     auto length = env->GetArrayLength(dest);
     if (tensor->host<int>() == nullptr) {
         // GPU buffer
-        std::unique_ptr<MNN::Tensor> hostTensor(
-                new MNN::Tensor(tensor, tensor->getDimensionType(), true));
+        hostTensor.reset(new MNN::Tensor(tensor, tensor->getDimensionType(), true));
         tensor->copyToHostTensor(hostTensor.get());
         tensor = hostTensor.get();
     }
@@ -319,9 +320,9 @@ Java_com_yeyupiaoling_mnnclassification_mnn_MNNNetNative_nativeTensorGetIntData(
 
 extern "C" JNIEXPORT jint JNICALL
 Java_com_yeyupiaoling_mnnclassification_mnn_MNNNetNative_nativeTensorGetData(JNIEnv *env,
-                                                              jclass type,
-                                                              jlong tensorPtr,
-                                                              jfloatArray dest) {
+                                                                             jclass type,
+                                                                             jlong tensorPtr,
+                                                                             jfloatArray dest) {
     auto tensor = reinterpret_cast<MNN::Tensor *>(tensorPtr);
     if (nullptr == dest) {
         std::unique_ptr<MNN::Tensor> hostTensor(

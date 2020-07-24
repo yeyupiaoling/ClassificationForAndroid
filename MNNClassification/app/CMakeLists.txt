@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.4.1)
 
 # common
 set(lib_DIR ${CMAKE_SOURCE_DIR}/src/main/jniLibs)
-include_directories(${CMAKE_SOURCE_DIR}/includes)
+include_directories(${CMAKE_SOURCE_DIR}/include)
 find_library(log-lib log android)
 find_library(jnigraphics-lib jnigraphics)
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fopenmp")
