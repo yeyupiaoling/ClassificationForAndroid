@@ -59,6 +59,34 @@ vim build_android.sh
 
 编译完成后，会在当前目录的`release`目录下生成对应的`armeabi-v7a`库，`arm64-v8a`库和`include`头文件，这些文件在下一步的Android开发都需要使用到。
 
+5. 模型转换
+```bash
+sudo docker pull turandotkay/tnn-convert
+sudo docker tag turandotkay/tnn-convert:latest tnn-convert:latest
+sudo docker rmi turandotkay/tnn-convert:latest
+
+docker run --volume=$(pwd):/workspace -it tnn-convert:latest  python3 ./converter.py tf2tnn \
+    -tp /workspace/mobilenet_v1.pb \
+    -in "input[1,224,224,3]" \
+    -on MobilenetV1/Predictions/Reshape_1 \
+    -v v1.0 \
+    -optimize
+```
+
+```
+----------  convert model, please wait a moment ----------
+
+Converter Tensorflow to TNN model
+
+Convert TensorFlow to ONNX model succeed!
+
+Converter ONNX to TNN Model
+
+Converter ONNX to TNN model succeed!
+```
+
+`mobilenet_v1.opt.tnnmodel` `mobilenet_v1.opt.tnnproto`
+
 # 开发Android项目
 
 
