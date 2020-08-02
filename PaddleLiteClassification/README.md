@@ -513,9 +513,11 @@ private void predict() {
 ```
 
 **选择图片识别效果图：**
+
 ![选择图片识别效果图](https://s1.ax1x.com/2020/07/24/UvE511.jpg)
 
 
 
 **相机实时识别效果图：**
+
 ![相机实时识别效果图](https://s1.ax1x.com/2020/07/24/UvEoX6.jpg)
