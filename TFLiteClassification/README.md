@@ -95,9 +95,9 @@ print(output_details)
 # 部署到Android设备
 首先要在`build.gradle`导入这三个库，如果不使用GPU可以只导入两个库。
 ```bash
-implementation 'org.tensorflow:tensorflow-lite:0.0.0-nightly'
-implementation 'org.tensorflow:tensorflow-lite-gpu:0.0.0-nightly'
-implementation 'org.tensorflow:tensorflow-lite-support:0.0.0-nightly'
+implementation 'org.tensorflow:tensorflow-lite:2.3.0'
+implementation 'org.tensorflow:tensorflow-lite-gpu:2.3.0'
+implementation 'org.tensorflow:tensorflow-lite-support:0.1.0-rc1'
 ```
 
 在以前还需要在`android`下添加以下代码，避免在打包apk的是对模型有压缩操作，损坏模型。现在好像不加也没有关系，但是为了安全起见，还是添加上去。
@@ -106,6 +106,8 @@ implementation 'org.tensorflow:tensorflow-lite-support:0.0.0-nightly'
         noCompress "tflite"
     }
 ```
+
+复制转换的预测模型到`app/src/main/assets`目录下，还有类别的标签，每一行对应一个标签名称。
 
 ## Tensorflow Lite工具
 编写一个[TFLiteClassificationUtil](https://github.com/yeyupiaoling/ClassificationForAndroid/blob/master/TFLiteClassification/app/src/main/java/com/yeyupiaoling/tfliteclassification/TFLiteClassificationUtil.java)工具类，关于Tensorflow Lite的操作都在这里完成，如加载模型、预测。在构造方法中，通过参数传递的模型路径加载模型，在加载模型的时候配置预测信息，例如是否使用Android底层神经网络API`NnApiDelegate`或者是否使用GPU`GpuDelegate`，同时获取网络的输入输出层。有了`tensorflow-lite-support`库，数据预处理就变得非常简单，通过`ImageProcessor`创建一个数据预处理的工具，之后在预测之前使用这个工具对图像进行预处理，处理速度还是挺快的，要注意的是图像的均值`IMAGE_MEAN`和标准差`IMAGE_STD`，因为在训练的时候图像预处理可能不一样的，有些读者出现在电脑上准确率很高，但在手机上准确率很低，多数情况下就是这个图像预处理做得不对。
