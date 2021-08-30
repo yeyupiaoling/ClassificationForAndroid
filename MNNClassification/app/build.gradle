@@ -18,6 +18,13 @@ android {
         }
     }
 
+    packagingOptions {
+        pickFirst 'lib/arm64-v8a/libMNN.so'
+        pickFirst 'lib/armeabi-v7a/libMNN.so'
+        pickFirst 'lib/armeabi/libMNN.so'
+        pickFirst 'lib/x86/libMNN.so'
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -35,6 +42,8 @@ android {
             jni.srcDirs = ['src/cpp']
         }
     }
+
+    ndkVersion "20.0.5594570"
 }
 
 dependencies {

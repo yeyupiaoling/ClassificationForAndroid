@@ -69,8 +69,9 @@ public class CameraActivity extends AppCompatActivity {
 
         // 加载模型和标签
         classNames = Utils.ReadListFromFile(getAssets(), "label_list.txt");
-        String classificationModelPath = getCacheDir().getAbsolutePath() + File.separator + "mobilenet_v2.mnn";
-        Utils.copyFileFromAsset(CameraActivity.this, "mobilenet_v2.mnn", classificationModelPath);
+        String classificationModelPath = getCacheDir().getAbsolutePath() + File.separator + "1.mobilenet_prune.mnn";
+//        Utils.copyFileFromAsset(CameraActivity.this, "mobilenet_v2.mnn", classificationModelPath);
+        Utils.copyFileFromAsset(CameraActivity.this, "1.mobilenet_prune.mnn", classificationModelPath);
         try {
             mnnClassification = new MNNClassification(classificationModelPath);
             Toast.makeText(CameraActivity.this, "模型加载成功！", Toast.LENGTH_SHORT).show();

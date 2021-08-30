@@ -30,8 +30,12 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     private MNNClassification mnnClassification;
+    private MNNClassification mnnClassificationPrune;
+    private MNNClassification mnnClassificationQat;
     private ImageView imageView;
     private TextView textView;
+    private TextView textViewPrune;
+    private TextView textViewQat;
     private ArrayList<String> classNames;
 
     @Override
@@ -44,10 +48,16 @@ public class MainActivity extends AppCompatActivity {
 
         // 加载模型和标签
         classNames = Utils.ReadListFromFile(getAssets(), "label_list.txt");
-        String classificationModelPath = getCacheDir().getAbsolutePath() + File.separator + "mobilenet_v2.mnn";
-        Utils.copyFileFromAsset(MainActivity.this, "mobilenet_v2.mnn", classificationModelPath);
+        String classificationModelPath = getCacheDir().getAbsolutePath() + File.separator + "mobilenet_v2_new.mnn";
+        Utils.copyFileFromAsset(MainActivity.this, "mobilenet_v2_new.mnn", classificationModelPath);
+        String classificationPruneModelPath = getCacheDir().getAbsolutePath() + File.separator + "mobilenet_v2_prune_final.mnn";
+        Utils.copyFileFromAsset(MainActivity.this, "mobilenet_v2_prune_final.mnn", classificationPruneModelPath);
+        String classificationQatModelPath = getCacheDir().getAbsolutePath() + File.separator + "mobilenet_v2_prune_final_quan0.mnn";
+        Utils.copyFileFromAsset(MainActivity.this, "mobilenet_v2_prune_final_quan0.mnn", classificationQatModelPath);
         try {
             mnnClassification = new MNNClassification(classificationModelPath);
+            mnnClassificationPrune = new MNNClassification(classificationPruneModelPath);
+            mnnClassificationQat = new MNNClassification(classificationQatModelPath);
             Toast.makeText(MainActivity.this, "模型加载成功！", Toast.LENGTH_SHORT).show();
         } catch (Exception e) {
             Toast.makeText(MainActivity.this, "模型加载失败！", Toast.LENGTH_SHORT).show();
@@ -60,6 +70,8 @@ public class MainActivity extends AppCompatActivity {
         Button openCamera = findViewById(R.id.open_camera);
         imageView = findViewById(R.id.image_view);
         textView = findViewById(R.id.result_text);
+        textViewPrune = findViewById(R.id.result_text_prune);
+        textViewQat = findViewById(R.id.result_text_qat);
         selectImgBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -96,13 +108,26 @@ public class MainActivity extends AppCompatActivity {
                     FileInputStream fis = new FileInputStream(image_path);
                     imageView.setImageBitmap(BitmapFactory.decodeStream(fis));
                     long start = System.currentTimeMillis();
-                    float[] result = mnnClassification.predictImage(image_path);
-                    long end = System.currentTimeMillis();
-                    String show_text = "预测结果标签：" + (int) result[0] +
-                            "\n名称：" +  classNames.get((int) result[0]) +
-                            "\n概率：" + result[1] +
-                            "\n时间：" + (end - start) + "ms";
+                    float[] result2 = mnnClassificationQat.predictImage(image_path);
+                    long end1 = System.currentTimeMillis();
+
+                    float[] result0 = mnnClassification.predictImage(image_path);
+
+                    long end2 = System.currentTimeMillis();
+                    float[] result1 = mnnClassificationPrune.predictImage(image_path);
+                    long end3 = System.currentTimeMillis();
+                    String show_text = "预测结果标签：" + (int) result0[0] +
+                            "\n名称：" +  classNames.get((int) result0[0]) +
+                            "\n时间：" + (end1 - start) + "ms";
                     textView.setText(show_text);
+                    show_text = "预测结果标签：" + (int) result1[0] +
+                            "\n名称：" +  classNames.get((int) result1[0]) +
+                            "\n时间：" + (end2 - end1) + "ms";
+                    textViewPrune.setText(show_text);
+                    show_text = "预测结果标签：" + (int) result2[0] +
+                            "\n名称：" +  classNames.get((int) result2[0]) +
+                            "\n时间：" + (end3 - end2) + "ms";
+                    textViewQat.setText(show_text);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

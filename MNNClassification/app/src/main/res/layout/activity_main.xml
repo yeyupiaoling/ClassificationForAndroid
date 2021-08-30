@@ -11,34 +11,127 @@
         android:layout_width="match_parent"
         android:layout_height="400dp" />
 
-    <TextView
-        android:id="@+id/result_text"
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/image_view"
-        android:text="识别结果"
-        android:textSize="16sp" />
+        android:layout_marginHorizontal="10dp"
+        android:orientation="horizontal"
+
+        android:layout_marginTop="410dp">
+
+        <TextView
+            android:id="@+id/result_text"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:padding="3dp"
+            android:layout_below="@id/image_view"
+            android:text=""
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/result_text_prune"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:padding="3dp"
+            android:layout_below="@id/image_view"
+            android:text=""
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/result_text_qat"
+            android:padding="3dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/image_view"
+            android:text=""
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="580dp"
+        android:orientation="horizontal"
+        android:layout_marginHorizontal="10dp"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="15dp"
+            android:layout_gravity="center_horizontal"
+
+            android:text="原模型"
+            android:gravity="center"
+
+            android:textStyle="bold"
+            android:textColor="#828282"
+            android:textSize="32sp">
+        </TextView>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="15dp"
+            android:layout_gravity="center_horizontal"
+
+            android:text="剪枝"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="#828282"
+
+            android:textSize="32sp">
+        </TextView>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="15dp"
+            android:layout_gravity="center_horizontal"
+
+            android:text="量化"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="#828282"
+
+            android:textSize="32sp">
+        </TextView>
+
+    </LinearLayout>
+
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp"
         android:orientation="horizontal">
 
         <Button
+            android:layout_margin="12dp"
             android:id="@+id/select_img_btn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@drawable/button"
+            android:textColor="@color/white"
+            android:textSize="16sp"
             android:text="选择照片" />
 
 
         <Button
             android:id="@+id/open_camera"
             android:layout_width="0dp"
+            android:layout_margin="12dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@drawable/button"
+            android:textColor="@color/white"
+            android:textSize="16sp"
             android:text="实时预测" />
 
     </LinearLayout>

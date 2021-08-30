@@ -104,6 +104,22 @@ public class MNNClassification {
         }
         MNNNetInstance.Session.Tensor output = mSession.getOutput(null);
         float[] result = output.getFloatData();
+
+//        // 归一化处理
+//        float min = 100;
+//        float max = -100;
+//        for (float res: result) {
+//            if (res>max){
+//                max = res;
+//            }
+//            if (res<min){
+//                min = res;
+//            }
+//        }
+//        for (int i = 0; i < result.length; i++) {
+//            result[i] = (result[i] - min )/ (max - min);
+//        }
+
         Log.d(TAG, Arrays.toString(result));
         int l = getMaxResult(result);
         return new float[]{l, result[l]};
