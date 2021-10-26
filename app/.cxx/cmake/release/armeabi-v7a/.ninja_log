@@ -1,0 +1,6 @@
+# ninja log v5
+0	9	0	clean	acf40d426b899868
+0	6	0	clean	acf40d426b899868
+0	7	0	clean	acf40d426b899868
+4	728	1630307313	CMakeFiles/mnncore.dir/src/main/cpp/mnnportraitnative.cpp.o	307cb752d64928fb
+2	1458	1630307314	CMakeFiles/mnncore.dir/src/main/cpp/mnnnetnative.cpp.o	8a07ad2fd05ed68d

@@ -1,0 +1,7 @@
+Executable : /Users/xuxinhao/Library/Android/sdk/cmake/3.10.2.4988404/bin/ninja
+arguments : 
+-C
+/Users/xuxinhao/Documents/GitHub/ClassificationForAndroid/MNNClassification/app/.cxx/cmake/release/armeabi-v7a
+mnncore
+jvmArgs : 
+

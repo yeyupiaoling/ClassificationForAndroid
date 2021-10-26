@@ -1,0 +1,50 @@
+{
+  "stringTable": {
+    "0": "/Users/xuxinhao/Documents/GitHub/ClassificationForAndroid/MNNClassification/app/.cxx/cmake/debug/armeabi-v7a",
+    "1": "--target=armv7-none-linux-androideabi21 --gcc-toolchain=/Users/xuxinhao/Library/Android/sdk/ndk/20.0.5594570/toolchains/llvm/prebuilt/darwin-x86_64 --sysroot=/Users/xuxinhao/Library/Android/sdk/ndk/20.0.5594570/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -DMNN_USE_LOGCAT -Dmnncore_EXPORTS -I../../../../include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -march=armv7-a -mthumb -mfpu=neon -Wa,--noexecstack -Wformat -Werror=format-security -fopenmp -std=c++11 -fvisibility=hidden -fvisibility-inlines-hidden -fomit-frame-pointer -fstrict-aliasing -ffunction-sections -fdata-sections -ffast-math -fno-rtti -fno-exceptions -flax-vector-conversions -O0 -fno-limit-debug-info -fPIC"
+  },
+  "buildFiles": [
+    "/Users/xuxinhao/Documents/GitHub/ClassificationForAndroid/MNNClassification/app/CMakeLists.txt",
+    "/Users/xuxinhao/Library/Android/sdk/ndk/20.0.5594570/build/cmake/android.toolchain.cmake",
+    "/Users/xuxinhao/Library/Android/sdk/ndk/20.0.5594570/build/cmake/platforms.cmake"
+  ],
+  "cleanCommands": [
+    "/Users/xuxinhao/Library/Android/sdk/cmake/3.10.2.4988404/bin/ninja -C \"/Users/xuxinhao/Documents/GitHub/ClassificationForAndroid/MNNClassification/app/.cxx/cmake/debug/armeabi-v7a\" clean"
+  ],
+  "buildTargetsCommand": "/Users/xuxinhao/Library/Android/sdk/cmake/3.10.2.4988404/bin/ninja  -C \"/Users/xuxinhao/Documents/GitHub/ClassificationForAndroid/MNNClassification/app/.cxx/cmake/debug/armeabi-v7a\" {LIST_OF_TARGETS_TO_BUILD}",
+  "libraries": {
+    "mnncore-Debug-armeabi-v7a": {
+      "buildCommand": "/Users/xuxinhao/Library/Android/sdk/cmake/3.10.2.4988404/bin/ninja -C \"/Users/xuxinhao/Documents/GitHub/ClassificationForAndroid/MNNClassification/app/.cxx/cmake/debug/armeabi-v7a\" mnncore",
+      "buildType": "debug",
+      "toolchain": "2662837366",
+      "abi": "armeabi-v7a",
+      "artifactName": "mnncore",
+      "files": [
+        {
+          "src": "/Users/xuxinhao/Documents/GitHub/ClassificationForAndroid/MNNClassification/app/src/main/cpp/mnnnetnative.cpp",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "/Users/xuxinhao/Documents/GitHub/ClassificationForAndroid/MNNClassification/app/src/main/cpp/mnnportraitnative.cpp",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        }
+      ],
+      "headers": [],
+      "output": "/Users/xuxinhao/Documents/GitHub/ClassificationForAndroid/MNNClassification/app/build/intermediates/cmake/debug/obj/armeabi-v7a/libmnncore.so",
+      "runtimeFiles": [
+        "/Users/xuxinhao/Documents/GitHub/ClassificationForAndroid/MNNClassification/app/src/main/jniLibs/armeabi-v7a/libMNN.so"
+      ]
+    }
+  },
+  "toolchains": {
+    "2662837366": {
+      "cppCompilerExecutable": "/Users/xuxinhao/Library/Android/sdk/ndk/20.0.5594570/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++"
+    }
+  },
+  "cFileExtensions": [],
+  "cppFileExtensions": [
+    "cpp"
+  ]
+}

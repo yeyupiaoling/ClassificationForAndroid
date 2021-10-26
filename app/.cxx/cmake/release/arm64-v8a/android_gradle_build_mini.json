@@ -1,0 +1,22 @@
+{
+  "buildFiles": [
+    "/Users/xuxinhao/Documents/GitHub/ClassificationForAndroid/MNNClassification/app/CMakeLists.txt",
+    "/Users/xuxinhao/Library/Android/sdk/ndk/20.0.5594570/build/cmake/android.toolchain.cmake",
+    "/Users/xuxinhao/Library/Android/sdk/ndk/20.0.5594570/build/cmake/platforms.cmake"
+  ],
+  "cleanCommands": [
+    "/Users/xuxinhao/Library/Android/sdk/cmake/3.10.2.4988404/bin/ninja -C \"/Users/xuxinhao/Documents/GitHub/ClassificationForAndroid/MNNClassification/app/.cxx/cmake/release/arm64-v8a\" clean"
+  ],
+  "buildTargetsCommand": "/Users/xuxinhao/Library/Android/sdk/cmake/3.10.2.4988404/bin/ninja  -C \"/Users/xuxinhao/Documents/GitHub/ClassificationForAndroid/MNNClassification/app/.cxx/cmake/release/arm64-v8a\" {LIST_OF_TARGETS_TO_BUILD}",
+  "libraries": {
+    "mnncore-Release-arm64-v8a": {
+      "artifactName": "mnncore",
+      "buildCommand": "/Users/xuxinhao/Library/Android/sdk/cmake/3.10.2.4988404/bin/ninja -C \"/Users/xuxinhao/Documents/GitHub/ClassificationForAndroid/MNNClassification/app/.cxx/cmake/release/arm64-v8a\" mnncore",
+      "abi": "arm64-v8a",
+      "output": "/Users/xuxinhao/Documents/GitHub/ClassificationForAndroid/MNNClassification/app/build/intermediates/cmake/release/obj/arm64-v8a/libmnncore.so",
+      "runtimeFiles": [
+        "/Users/xuxinhao/Documents/GitHub/ClassificationForAndroid/MNNClassification/app/src/main/jniLibs/arm64-v8a/libMNN.so"
+      ]
+    }
+  }
+}

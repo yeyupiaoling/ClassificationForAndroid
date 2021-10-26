@@ -1,0 +1,10 @@
+{
+  "ndkVersionFromDsl": "20.0.5594570",
+  "sdkFolder": "/Users/xuxinhao/Library/Android/sdk",
+  "sideBySideNdkFolderNames": [
+    "20.0.5594570",
+    "21.0.6113669",
+    "23.0.7599858",
+    "21.1.6352462"
+  ]
+}

@@ -1,0 +1,7 @@
+# ninja log v5
+0	8	0	clean	acf40d426b899868
+1	1253	1629903509	CMakeFiles/mnncore.dir/src/main/cpp/mnnportraitnative.cpp.o	823354f6b0924a16
+1	1811	1629903509	CMakeFiles/mnncore.dir/src/main/cpp/mnnnetnative.cpp.o	cd83632c9a619f6d
+1811	2042	1629903510	../../../../build/intermediates/cmake/debug/obj/armeabi-v7a/libmnncore.so	6fe5fd4098795358
+0	6	0	clean	acf40d426b899868
+1	8	0	clean	acf40d426b899868

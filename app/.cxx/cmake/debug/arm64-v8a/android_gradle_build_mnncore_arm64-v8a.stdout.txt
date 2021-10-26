@@ -1,0 +1,2 @@
+ninja: Entering directory `/Users/xuxinhao/Documents/GitHub/ClassificationForAndroid/MNNClassification/app/.cxx/cmake/debug/arm64-v8a'
+ninja: no work to do.

@@ -1,0 +1,13 @@
+[
+{
+  "directory": "/Users/xuxinhao/Documents/GitHub/ClassificationForAndroid/MNNClassification/app/.cxx/cmake/debug/arm64-v8a",
+  "command": "/Users/xuxinhao/Library/Android/sdk/ndk/20.0.5594570/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++ --target=aarch64-none-linux-android21 --gcc-toolchain=/Users/xuxinhao/Library/Android/sdk/ndk/20.0.5594570/toolchains/llvm/prebuilt/darwin-x86_64 --sysroot=/Users/xuxinhao/Library/Android/sdk/ndk/20.0.5594570/toolchains/llvm/prebuilt/darwin-x86_64/sysroot  -DMNN_USE_LOGCAT -Dmnncore_EXPORTS -I../../../../include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -Wa,--noexecstack -Wformat -Werror=format-security   -fopenmp -std=c++11 -fvisibility=hidden -fvisibility-inlines-hidden -fomit-frame-pointer -fstrict-aliasing -ffunction-sections -fdata-sections -ffast-math -fno-rtti -fno-exceptions -flax-vector-conversions -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles/mnncore.dir/src/main/cpp/mnnnetnative.cpp.o -c /Users/xuxinhao/Documents/GitHub/ClassificationForAndroid/MNNClassification/app/src/main/cpp/mnnnetnative.cpp",
+  "file": "/Users/xuxinhao/Documents/GitHub/ClassificationForAndroid/MNNClassification/app/src/main/cpp/mnnnetnative.cpp"
+},
+
+{
+  "directory": "/Users/xuxinhao/Documents/GitHub/ClassificationForAndroid/MNNClassification/app/.cxx/cmake/debug/arm64-v8a",
+  "command": "/Users/xuxinhao/Library/Android/sdk/ndk/20.0.5594570/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++ --target=aarch64-none-linux-android21 --gcc-toolchain=/Users/xuxinhao/Library/Android/sdk/ndk/20.0.5594570/toolchains/llvm/prebuilt/darwin-x86_64 --sysroot=/Users/xuxinhao/Library/Android/sdk/ndk/20.0.5594570/toolchains/llvm/prebuilt/darwin-x86_64/sysroot  -DMNN_USE_LOGCAT -Dmnncore_EXPORTS -I../../../../include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -Wa,--noexecstack -Wformat -Werror=format-security   -fopenmp -std=c++11 -fvisibility=hidden -fvisibility-inlines-hidden -fomit-frame-pointer -fstrict-aliasing -ffunction-sections -fdata-sections -ffast-math -fno-rtti -fno-exceptions -flax-vector-conversions -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles/mnncore.dir/src/main/cpp/mnnportraitnative.cpp.o -c /Users/xuxinhao/Documents/GitHub/ClassificationForAndroid/MNNClassification/app/src/main/cpp/mnnportraitnative.cpp",
+  "file": "/Users/xuxinhao/Documents/GitHub/ClassificationForAndroid/MNNClassification/app/src/main/cpp/mnnportraitnative.cpp"
+}
+]

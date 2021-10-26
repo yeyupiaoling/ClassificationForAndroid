@@ -1,0 +1,16 @@
+# ninja log v5
+1	693	1629516568	CMakeFiles/mnncore.dir/src/main/cpp/mnnportraitnative.cpp.o	5abbdefc5e65d1dc
+0	1179	1629516568	CMakeFiles/mnncore.dir/src/main/cpp/mnnnetnative.cpp.o	cbab0e457b016c6a
+1180	1255	1629516569	../../../../build/intermediates/cmake/debug/obj/arm64-v8a/libmnncore.so	245f6e757152c480
+1	10	0	clean	acf40d426b899868
+1	446	1629903510	CMakeFiles/mnncore.dir/src/main/cpp/mnnportraitnative.cpp.o	5abbdefc5e65d1dc
+1	844	1629903510	CMakeFiles/mnncore.dir/src/main/cpp/mnnnetnative.cpp.o	cbab0e457b016c6a
+844	998	1629903511	../../../../build/intermediates/cmake/debug/obj/arm64-v8a/libmnncore.so	245f6e757152c480
+0	6	0	clean	acf40d426b899868
+3	683	1629903655	CMakeFiles/mnncore.dir/src/main/cpp/mnnportraitnative.cpp.o	5abbdefc5e65d1dc
+2	1125	1629903655	CMakeFiles/mnncore.dir/src/main/cpp/mnnnetnative.cpp.o	cbab0e457b016c6a
+1125	1203	1629903655	../../../../build/intermediates/cmake/debug/obj/arm64-v8a/libmnncore.so	245f6e757152c480
+0	7	0	clean	acf40d426b899868
+6	1441	1629913424	CMakeFiles/mnncore.dir/src/main/cpp/mnnportraitnative.cpp.o	5abbdefc5e65d1dc
+4	1952	1629913424	CMakeFiles/mnncore.dir/src/main/cpp/mnnnetnative.cpp.o	cbab0e457b016c6a
+1952	2166	1629913424	../../../../build/intermediates/cmake/debug/obj/arm64-v8a/libmnncore.so	245f6e757152c480
