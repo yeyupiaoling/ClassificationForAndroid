@@ -58,6 +58,7 @@ public class CameraActivity extends AppCompatActivity {
     private ArrayList<String> classNames;
     private MNNClassification mnnClassification;
     private TextView textView;
+    private TextView nameView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,11 +68,14 @@ public class CameraActivity extends AppCompatActivity {
             requestPermission();
         }
 
+        Bundle receive=getIntent().getExtras();
+        String model=receive.getString("model");
+        String name = receive.getString("name");
+
         // 加载模型和标签
         classNames = Utils.ReadListFromFile(getAssets(), "label_list.txt");
-        String classificationModelPath = getCacheDir().getAbsolutePath() + File.separator + "1.mobilenet_prune.mnn";
-//        Utils.copyFileFromAsset(CameraActivity.this, "mobilenet_v2.mnn", classificationModelPath);
-        Utils.copyFileFromAsset(CameraActivity.this, "1.mobilenet_prune.mnn", classificationModelPath);
+        String classificationModelPath = getCacheDir().getAbsolutePath() + File.separator + model;
+        Utils.copyFileFromAsset(CameraActivity.this, model, classificationModelPath);
         try {
             mnnClassification = new MNNClassification(classificationModelPath);
             Toast.makeText(CameraActivity.this, "模型加载成功！", Toast.LENGTH_SHORT).show();
@@ -84,6 +88,8 @@ public class CameraActivity extends AppCompatActivity {
         // 获取控件
         mTextureView = findViewById(R.id.texture_view);
         textView = findViewById(R.id.result_text);
+        nameView = findViewById(R.id.name_text);
+        nameView.setText(name);
     }
 
 
@@ -116,9 +122,8 @@ public class CameraActivity extends AppCompatActivity {
             long start = System.currentTimeMillis();
             float[] result = mnnClassification.predictImage(bitmap);
             long end = System.currentTimeMillis();
-            String show_text = "预测结果标签：" + (int) result[0] +
+            String show_text = "标签：" + (int) result[0] +
                     "\n名称：" +  classNames.get((int) result[0]) +
-                    "\n概率：" + result[1] +
                     "\n时间：" + (end - start) + "ms";
             textView.setText(show_text);
         } catch (Exception e) {

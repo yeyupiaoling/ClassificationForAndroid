@@ -14,10 +14,23 @@
 
 
     <TextView
-        android:id="@+id/result_text"
+        android:id="@+id/name_text"
         android:layout_width="match_parent"
         android:layout_height="100dp"
+        android:layout_marginTop="500dp"
+        android:layout_marginHorizontal="10dp"
+        android:text="识别结果"
+        android:textStyle="bold"
+        android:textColor="#828282"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/result_text"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
         android:layout_alignParentBottom="true"
+        android:layout_marginBottom="90dp"
+        android:paddingStart="24dp"
         android:text="识别结果"
         android:textSize="16sp" />
 </RelativeLayout>
