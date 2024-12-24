@@ -1,8 +1,3 @@
-> 原文博客：[Doi技术团队](http://blog.doiduoyi.com)<br/>
-> 链接地址：[https://blog.doiduoyi.com/authors/1584446358138](https://blog.doiduoyi.com/authors/1584446358138)<br/>
-> 初心：记录优秀的Doi技术团队学习经历<br/>
->本文链接：[基于Tensorflow2 Lite在Android手机上实现图像分类](https://blog.doiduoyi.com/articles/1595399632765.html)<br/>
-
 
 # 前言
 Tensorflow2之后，训练保存的模型也有所变化，基于Keras接口搭建的网络模型默认保存的模型是h5格式的，而之前的模型格式是pb。Tensorflow2的h5格式的模型转换成tflite格式模型非常方便。本教程就是介绍如何使用Tensorflow2的Keras接口训练分类模型并使用Tensorflow Lite部署到Android设备上。
