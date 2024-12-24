@@ -1,8 +1,3 @@
-> 原文博客：[Doi技术团队](http://blog.doiduoyi.com)<br/>
-> 链接地址：[https://blog.doiduoyi.com/authors/1584446358138](https://blog.doiduoyi.com/authors/1584446358138)<br/>
-> 初心：记录优秀的Doi技术团队学习经历<br/>
->本文链接：[基于MNN在Android手机上实现图像分类](https://blog.doiduoyi.com/articles/1599314168812.html)<br/>
-
 # 前言
 
 MNN是一个轻量级的深度神经网络推理引擎，在端侧加载深度神经网络模型进行推理预测。目前，MNN已经在阿里巴巴的手机淘宝、手机天猫、优酷等20多个App中使用，覆盖直播、短视频、搜索推荐、商品图像搜索、互动营销、权益发放、安全风控等场景。此外，IoT等场景下也有若干应用。
