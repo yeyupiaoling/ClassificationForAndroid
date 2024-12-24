@@ -1,9 +1,3 @@
-> 原文博客：[Doi技术团队](http://blog.doiduoyi.com)<br/>
-> 链接地址：[https://blog.doiduoyi.com/authors/1584446358138](https://blog.doiduoyi.com/authors/1584446358138)<br/>
-> 初心：记录优秀的Doi技术团队学习经历<br/>
->本文链接：[基于Paddle Lite在Android手机上实现图像分类](https://blog.doiduoyi.com/articles/1596345808188.html)<br/>
-
-
 # 前言
 Paddle Lite是飞桨基于Paddle Mobile全新升级推出的端侧推理引擎，在多硬件、多平台以及硬件混合调度的支持上更加完备，为包括手机在内的端侧场景的AI应用提供高效轻量的推理能力，有效解决手机算力和内存限制等问题，致力于推动AI应用更广泛的落地。
 
